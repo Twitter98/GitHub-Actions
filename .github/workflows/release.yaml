@@ -1,0 +1,19 @@
+name: release
+on:
+  workflow_dispatch:
+jobs:
+  release:
+    permissions:
+      contents: write
+      issues: write
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v4
+      - name: install modules
+        run: npm install semantic-release @semantic-release/git @semantic-release/github -D
+      - name: release
+        run: npx semantic-release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
