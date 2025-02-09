@@ -29,7 +29,7 @@ resource "aws_instance" "test" {
   key_name                    = var.key
   associate_public_ip_address = true
   subnet_id                   = aws_subnet.myfirstvpc_subnet.id
-  user_data                   = file("app.sh")
+  #user_data                   = file("app.sh")
   vpc_security_group_ids      = [aws_security_group.devops.id]
   tags = {
     Name = "First-EC2"
