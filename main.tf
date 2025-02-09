@@ -220,3 +220,4 @@ resource "aws_internet_gateway" "Igw" {
     Name = "myIgw"
   }
 }
+
